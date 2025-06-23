@@ -1,4 +1,5 @@
-# VoiceGPT Advanced 🎤🤖
+# English Tutor AI Application 
+VoiceGPT Advanced 🎤🤖
 
 An advanced voice-enabled AI chatbot with modern UI, multiple AI models, conversation history, and comprehensive features for an enhanced user experience.
 
@@ -41,7 +42,7 @@ An advanced voice-enabled AI chatbot with modern UI, multiple AI models, convers
 - **Focus Management**: Proper focus handling for accessibility
 - **Reduced Motion**: Respects user's motion preferences
 
-## 🚀 Quick Start
+## 🚀 Quick Start  -- HOW TO RUN 
 
 ### Prerequisites
 - Node.js 16+ 
