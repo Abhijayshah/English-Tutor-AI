@@ -78,6 +78,130 @@ An advanced voice-enabled AI chatbot with modern UI, multiple AI models, convers
 5. **Open your browser**
    Navigate to `http://localhost:3000`
 
+## 🎓 Running the English Tutor AI Application
+
+### Step-by-Step Guide
+
+The English Tutor AI is a specialized voice-enabled application designed to help users improve their English speaking skills through interactive conversations with AI tutors.
+
+#### 1. **Prerequisites Check**
+Before running the application, ensure you have:
+- **Node.js 16+** installed on your system
+- **npm 8+** (comes with Node.js)
+- **A modern web browser** (Chrome, Edge, or Safari recommended for best voice support)
+- **Microphone access** for voice interaction features
+
+#### 2. **Installation Steps**
+
+```bash
+# Navigate to the project directory
+cd English-Turor-AI-git
+
+# Install all required dependencies
+npm install
+```
+
+#### 3. **Environment Configuration (Optional)**
+
+The application works in demo mode without an API key, but for full AI capabilities:
+
+```bash
+# Copy the environment template
+cp env.example .env
+
+# Edit the .env file and add your OpenRouter API key
+OPENAI_API_KEY=your_openrouter_api_key_here
+PORT=3000
+NODE_ENV=development
+```
+
+#### 4. **Start the Application**
+
+```bash
+# Start the English Tutor AI server
+npm start
+```
+
+You should see output indicating the server is running:
+```
+Server started successfully on port 3000
+✅ English Tutor AI is ready!
+```
+
+#### 5. **Access the Application**
+
+1. **Open your web browser**
+2. **Navigate to**: `http://localhost:3000`
+3. **Allow microphone permissions** when prompted
+4. **Start practicing English!**
+
+### 🎯 English Learning Features
+
+Once the application is running, you can access these specialized English learning features:
+
+#### **AI Tutor Personalities**
+Choose from specialized English tutors:
+- **📚 Grammar Tutor**: Focuses on grammar corrections and explanations
+- **🗣️ Pronunciation Coach**: Helps with pronunciation and accent reduction
+- **💬 Conversation Partner**: Engages in natural conversations
+- **📖 Vocabulary Builder**: Introduces new words and phrases
+- **⚡ Fluency Coach**: Builds speaking confidence and flow
+
+#### **Learning Modes**
+- **Conversation Practice**: Natural dialogue for fluency building
+- **Grammar Focus**: Targeted grammar correction and explanation
+- **Pronunciation Training**: Speech analysis and pronunciation tips
+- **Vocabulary Expansion**: Learn new words in context
+
+#### **Difficulty Levels**
+- **Beginner**: Simple vocabulary and basic grammar
+- **Intermediate**: Moderate complexity with varied topics
+- **Advanced**: Complex discussions and advanced vocabulary
+
+### 🎤 How to Use Voice Features
+
+1. **Click the microphone button** to start voice recording
+2. **Speak clearly** in English - the AI will analyze your speech
+3. **Receive feedback** on grammar, pronunciation, and vocabulary
+4. **Continue the conversation** to practice different topics
+
+### 🔧 Application Status Check
+
+To verify the application is running properly:
+
+```bash
+# Check application health
+curl http://localhost:3000/health
+```
+
+You should receive a JSON response showing the application status, uptime, and version information.
+
+### 🛑 Stopping the Application
+
+To stop the English Tutor AI application:
+- Press `Ctrl + C` in the terminal where the application is running
+- Or close the terminal window
+
+### 📱 Mobile and Tablet Support
+
+The English Tutor AI is fully responsive and works on:
+- **Desktop browsers** (recommended for best experience)
+- **Mobile devices** (iOS Safari, Android Chrome)
+- **Tablets** (iPad, Android tablets)
+
+### 🔊 Audio Requirements
+
+For optimal experience:
+- **Enable microphone permissions** in your browser
+- **Use headphones** to prevent audio feedback
+- **Ensure quiet environment** for better speech recognition
+- **Speak clearly** and at moderate pace
+
+### 💡 Demo Mode vs Full Mode
+
+- **Demo Mode** (no API key): Basic functionality with fallback responses
+- **Full Mode** (with API key): Complete AI-powered tutoring with advanced analysis
+
 ## 🎮 Usage
 
 ### Basic Usage
@@ -248,4 +372,4 @@ For support, please open an issue on GitHub or contact the development team.
 
 ---
 
-**Built with ❤️ by the VoiceGPT Team** 
+**Built by ABHIJAY KUMAR SHAH 22BCE11001 ** 
