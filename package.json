@@ -1,0 +1,52 @@
+{
+  "name": "voicegpt-advanced",
+  "version": "2.0.0",
+  "description": "Advanced AI Voice Chat Bot with Web Speech API, Multiple Models, and Modern UI",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "voice-chat",
+    "ai",
+    "speech-recognition",
+    "openai",
+    "socket.io",
+    "express",
+    "chatbot"
+  ],
+  "author": "VoiceGPT Team",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.8.4",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.1",
+    "helmet": "^8.0.0",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7",
+    "eslint": "^9.15.0",
+    "prettier": "^3.3.3"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/voicegpt-advanced.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/voicegpt-advanced/issues"
+  },
+  "homepage": "https://github.com/your-username/voicegpt-advanced#readme"
+}

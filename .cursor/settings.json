@@ -1,0 +1,25 @@
+{
+  "cursor.indexing.enabled": true,
+  "cursor.indexing.includePatterns": [
+    "**/*.js",
+    "**/*.html",
+    "**/*.css",
+    "**/*.json",
+    "**/*.md",
+    "**/*.env.example"
+  ],
+  "cursor.indexing.excludePatterns": [
+    "**/node_modules/**",
+    "**/package-lock.json",
+    "**/.DS_Store",
+    "**/dist/**",
+    "**/build/**",
+    "**/.git/**",
+    "**/logs/**",
+    "**/*.log"
+  ],
+  "cursor.indexing.maxFileSize": "1MB",
+  "cursor.indexing.realTime": true,
+  "cursor.ai.codebaseContext": true,
+  "cursor.ai.enableCodebaseQuestions": true
+} 

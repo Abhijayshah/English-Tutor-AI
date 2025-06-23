@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-Powered English Speaking Practice Platform">
+    <meta name="author" content="English Tutor AI">
+
+    <title>English Tutor AI - Speaking Practice Platform</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+      <button id="theme-btn" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <div class="logo-section">
+          <i class="fas fa-graduation-cap"></i>
+          <h1>English Tutor AI</h1>
+        </div>
+        <h2>Your Personal English Speaking Coach</h2>
+        <div class="status-indicator">
+          <span id="connection-status" class="status-dot connected"></span>
+          <span id="status-text">Ready to Practice</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+      <!-- Learning Dashboard -->
+      <div class="learning-dashboard" id="learning-dashboard">
+        <div class="dashboard-header">
+          <h3><i class="fas fa-chart-line"></i> Your Learning Progress</h3>
+          <button id="toggle-dashboard" class="btn-icon" aria-label="Toggle dashboard">
+            <i class="fas fa-chevron-up"></i>
+          </button>
+        </div>
+        
+        <div class="dashboard-content">
+          <div class="progress-cards">
+            <div class="progress-card">
+              <div class="card-icon grammar">
+                <i class="fas fa-spell-check"></i>
+              </div>
+              <div class="card-content">
+                <h4>Grammar Score</h4>
+                <div class="score" id="grammar-score">85%</div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="progress-card">
+              <div class="card-icon pronunciation">
+                <i class="fas fa-microphone-alt"></i>
+              </div>
+              <div class="card-content">
+                <h4>Pronunciation</h4>
+                <div class="score" id="pronunciation-score">78%</div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 78%"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="progress-card">
+              <div class="card-icon vocabulary">
+                <i class="fas fa-book-open"></i>
+              </div>
+              <div class="card-content">
+                <h4>Vocabulary</h4>
+                <div class="score" id="vocabulary-score">92%</div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 92%"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="progress-card">
+              <div class="card-icon fluency">
+                <i class="fas fa-comments"></i>
+              </div>
+              <div class="card-content">
+                <h4>Fluency</h4>
+                <div class="score" id="fluency-score">81%</div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 81%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="learning-stats">
+            <div class="stat-item">
+              <i class="fas fa-fire"></i>
+              <span>7 Day Streak</span>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-clock"></i>
+              <span>45 min Today</span>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-star"></i>
+              <span>Level: Intermediate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Learning Modes -->
+      <div class="learning-modes">
+        <h3><i class="fas fa-play-circle"></i> Choose Your Practice Mode</h3>
+        <div class="mode-grid">
+          <div class="mode-card active" data-mode="conversation">
+            <div class="mode-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <h4>Free Conversation</h4>
+            <p>Natural dialogue practice with AI tutor</p>
+          </div>
+          
+          <div class="mode-card" data-mode="grammar">
+            <div class="mode-icon">
+              <i class="fas fa-spell-check"></i>
+            </div>
+            <h4>Grammar Focus</h4>
+            <p>Targeted grammar correction and practice</p>
+          </div>
+          
+          <div class="mode-card" data-mode="pronunciation">
+            <div class="mode-icon">
+              <i class="fas fa-microphone-alt"></i>
+            </div>
+            <h4>Pronunciation</h4>
+            <p>Accent training and pronunciation feedback</p>
+          </div>
+          
+          <div class="mode-card" data-mode="vocabulary">
+            <div class="mode-icon">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <h4>Vocabulary Builder</h4>
+            <p>Learn new words through conversation</p>
+          </div>
+          
+          <div class="mode-card" data-mode="fluency">
+            <div class="mode-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h4>Fluency Training</h4>
+            <p>Build confidence and speaking flow</p>
+          </div>
+          
+          <div class="mode-card" data-mode="scenario">
+            <div class="mode-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <h4>Scenarios</h4>
+            <p>Practice real-life situations</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Panel -->
+      <div class="settings-panel" id="settings-panel">
+        <div class="settings-header">
+          <h3><i class="fas fa-cog"></i> Learning Settings</h3>
+          <button id="close-settings" aria-label="Close settings">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
+        <div class="setting-group">
+          <label for="tutor-mode">AI Tutor Mode:</label>
+          <select id="tutor-mode">
+            <option value="conversation_partner">Conversation Partner</option>
+            <option value="grammar_tutor">Grammar Tutor</option>
+            <option value="pronunciation_coach">Pronunciation Coach</option>
+            <option value="vocabulary_builder">Vocabulary Builder</option>
+            <option value="fluency_coach">Fluency Coach</option>
+          </select>
+        </div>
+
+        <div class="setting-group">
+          <label for="difficulty-level">Difficulty Level:</label>
+          <select id="difficulty-level">
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+            <option value="native">Native Level</option>
+          </select>
+        </div>
+
+        <div class="setting-group">
+          <label for="feedback-style">Feedback Style:</label>
+          <select id="feedback-style">
+            <option value="gentle">Gentle & Encouraging</option>
+            <option value="detailed">Detailed Analysis</option>
+            <option value="immediate">Immediate Correction</option>
+            <option value="summary">End-of-Session Summary</option>
+          </select>
+        </div>
+
+        <div class="setting-group">
+          <label for="language-select">Recognition Language:</label>
+          <select id="language-select">
+            <option value="en-US">English (US)</option>
+            <option value="en-GB">English (UK)</option>
+            <option value="en-AU">English (Australia)</option>
+            <option value="en-CA">English (Canada)</option>
+          </select>
+        </div>
+
+        <div class="setting-group">
+          <label for="voice-select">Tutor Voice:</label>
+          <select id="voice-select">
+            <option value="">Default</option>
+          </select>
+        </div>
+
+        <div class="setting-group">
+          <label for="session-length">Session Length:</label>
+          <select id="session-length">
+            <option value="5">5 minutes</option>
+            <option value="10">10 minutes</option>
+            <option value="15">15 minutes</option>
+            <option value="30">30 minutes</option>
+            <option value="unlimited">Unlimited</option>
+          </select>
+        </div>
+
+        <div class="setting-group">
+          <button id="clear-progress" class="btn-secondary">
+            <i class="fas fa-chart-line"></i> View Detailed Progress
+          </button>
+        </div>
+
+        <div class="setting-group">
+          <button id="clear-history" class="btn-secondary">
+            <i class="fas fa-trash"></i> Clear Session History
+          </button>
+        </div>
+      </div>
+
+      <!-- Chat Container -->
+      <div class="chat-container">
+        <!-- Feedback Panel -->
+        <div class="feedback-panel" id="feedback-panel">
+          <div class="feedback-header">
+            <h4><i class="fas fa-lightbulb"></i> AI Feedback</h4>
+            <button id="toggle-feedback" class="btn-icon">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+          <div class="feedback-content">
+            <div class="feedback-item grammar-feedback">
+              <h5><i class="fas fa-spell-check"></i> Grammar</h5>
+              <div id="grammar-feedback">Speak to get grammar feedback...</div>
+            </div>
+            <div class="feedback-item pronunciation-feedback">
+              <h5><i class="fas fa-microphone-alt"></i> Pronunciation</h5>
+              <div id="pronunciation-feedback">Speak to get pronunciation feedback...</div>
+            </div>
+            <div class="feedback-item vocabulary-feedback">
+              <h5><i class="fas fa-book-open"></i> Vocabulary</h5>
+              <div id="vocabulary-feedback">New words will appear here...</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat History -->
+        <div class="chat-history" id="chat-history">
+          <div class="welcome-message">
+            <div class="message tutor-message">
+              <div class="message-avatar">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="message-content">
+                <p>Hello! I'm your AI English tutor. I'm here to help you improve your speaking skills through natural conversation. Click the microphone and start speaking - I'll provide helpful feedback to make you a more confident English speaker!</p>
+                <p><small><em>💡 Note: Currently running in demo mode. For full AI capabilities, configure an OpenAI API key in the server settings.</em></small></p>
+              </div>
+              <div class="message-time" data-time=""></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Current Conversation Display -->
+        <div class="current-conversation">
+          <div class="conversation-item user-input">
+            <span class="label"><i class="fas fa-user"></i> You said:</span>
+            <em class="output-you">Click the microphone to start practicing...</em>
+          </div>
+          <div class="conversation-item tutor-response">
+            <span class="label"><i class="fas fa-graduation-cap"></i> AI Tutor:</span>
+            <em class="output-bot">Ready to help you improve your English!</em>
+          </div>
+        </div>
+
+        <!-- Voice Controls -->
+        <div class="voice-controls">
+          <!-- Main Microphone Button -->
+          <button id="mic-btn" class="mic-button" aria-label="Start speaking practice">
+            <i class="fas fa-microphone"></i>
+            <div class="pulse-ring"></div>
+          </button>
+
+          <!-- Secondary Controls -->
+          <div class="control-buttons">
+            <button id="settings-btn" class="control-btn" aria-label="Open settings">
+              <i class="fas fa-cog"></i>
+            </button>
+            <button id="mute-btn" class="control-btn" aria-label="Toggle mute">
+              <i class="fas fa-volume-up"></i>
+            </button>
+            <button id="stop-btn" class="control-btn" aria-label="Stop current speech">
+              <i class="fas fa-stop"></i>
+            </button>
+            <button id="feedback-btn" class="control-btn" aria-label="Toggle feedback panel">
+              <i class="fas fa-lightbulb"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Session Timer -->
+        <div class="session-timer" id="session-timer">
+          <i class="fas fa-clock"></i>
+          <span id="timer-display">00:00</span>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div class="loading-indicator" id="loading-indicator">
+          <div class="typing-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <p>AI is analyzing your speech...</p>
+        </div>
+
+        <!-- Voice Visualization -->
+        <div class="voice-visualizer" id="voice-visualizer">
+          <canvas id="visualizer-canvas"></canvas>
+        </div>
+      </div>
+    </main>
+
+    <!-- Scenario Modal -->
+    <div class="modal" id="scenario-modal" style="display: none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3><i class="fas fa-briefcase"></i> Choose Practice Scenario</h3>
+          <button class="modal-close" onclick="closeScenarioModal()">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="scenario-grid">
+            <div class="scenario-card" data-scenario="job-interview">
+              <i class="fas fa-briefcase"></i>
+              <h4>Job Interview</h4>
+              <p>Practice professional interview skills</p>
+            </div>
+            <div class="scenario-card" data-scenario="restaurant">
+              <i class="fas fa-utensils"></i>
+              <h4>Restaurant</h4>
+              <p>Ordering food and dining conversations</p>
+            </div>
+            <div class="scenario-card" data-scenario="travel">
+              <i class="fas fa-plane"></i>
+              <h4>Travel</h4>
+              <p>Airport, hotel, and tourist interactions</p>
+            </div>
+            <div class="scenario-card" data-scenario="shopping">
+              <i class="fas fa-shopping-cart"></i>
+              <h4>Shopping</h4>
+              <p>Store interactions and purchases</p>
+            </div>
+            <div class="scenario-card" data-scenario="medical">
+              <i class="fas fa-stethoscope"></i>
+              <h4>Medical</h4>
+              <p>Doctor visits and health discussions</p>
+            </div>
+            <div class="scenario-card" data-scenario="social">
+              <i class="fas fa-users"></i>
+              <h4>Social</h4>
+              <p>Casual conversations and small talk</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enhanced Toast Notification -->
+    <div class="toast" id="error-toast">
+      <div class="toast-content">
+        <i class="fas fa-info-circle"></i>
+        <span id="toast-message"></span>
+      </div>
+      <button class="toast-close" onclick="hideToast()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/microphone-fix.js"></script>
+  </body>
+</html>
