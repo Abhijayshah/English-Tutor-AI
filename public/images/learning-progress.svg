@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768" viewBox="0 0 1024 768">
+  <!-- Background -->
+  <rect width="1024" height="768" fill="#1a1b23"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1024" height="80" fill="#2d3748"/>
+  <text x="512" y="45" text-anchor="middle" fill="#a78bfa" font-size="24" font-family="Arial, sans-serif">📊 Your Learning Progress</text>
+  
+  <!-- Main Progress Section -->
+  <rect x="50" y="100" width="924" height="600" rx="16" fill="#374151"/>
+  
+  <!-- Overall Progress -->
+  <text x="100" y="140" fill="#a78bfa" font-size="20" font-family="Arial, sans-serif">Overall Progress</text>
+  <rect x="100" y="160" width="824" height="20" rx="10" fill="#4b5563"/>
+  <rect x="100" y="160" width="330" height="20" rx="10" fill="#6366f1"/>
+  <text x="512" y="200" text-anchor="middle" fill="#d1d5db" font-size="14" font-family="Arial, sans-serif">40% Complete</text>
+  
+  <!-- Skill Breakdown -->
+  <text x="100" y="240" fill="#a78bfa" font-size="18" font-family="Arial, sans-serif">Skill Breakdown</text>
+  
+  <!-- Grammar Progress -->
+  <rect x="100" y="270" width="400" height="80" rx="8" fill="#4c1d95"/>
+  <text x="120" y="295" fill="#a78bfa" font-size="16" font-family="Arial, sans-serif">📝 Grammar</text>
+  <rect x="120" y="305" width="360" height="8" rx="4" fill="#6b21a8"/>
+  <rect x="120" y="305" width="36" height="8" rx="4" fill="#a78bfa"/>
+  <text x="120" y="330" fill="white" font-size="14" font-family="Arial, sans-serif">10% - Needs Improvement</text>
+  <text x="460" y="330" text-anchor="end" fill="#d1d5db" font-size="12" font-family="Arial, sans-serif">5 sessions</text>
+  
+  <!-- Pronunciation Progress -->
+  <rect x="524" y="270" width="400" height="80" rx="8" fill="#be185d"/>
+  <text x="544" y="295" fill="#f472b6" font-size="16" font-family="Arial, sans-serif">🗣️ Pronunciation</text>
+  <rect x="544" y="305" width="360" height="8" rx="4" fill="#9d174d"/>
+  <rect x="544" y="305" width="36" height="8" rx="4" fill="#f472b6"/>
+  <text x="544" y="330" fill="white" font-size="14" font-family="Arial, sans-serif">10% - Needs Improvement</text>
+  <text x="884" y="330" text-anchor="end" fill="#d1d5db" font-size="12" font-family="Arial, sans-serif">3 sessions</text>
+  
+  <!-- Vocabulary Progress -->
+  <rect x="100" y="370" width="400" height="80" rx="8" fill="#1e40af"/>
+  <text x="120" y="395" fill="#60a5fa" font-size="16" font-family="Arial, sans-serif">📚 Vocabulary</text>
+  <rect x="120" y="405" width="360" height="8" rx="4" fill="#1e3a8a"/>
+  <rect x="120" y="405" width="36" height="8" rx="4" fill="#60a5fa"/>
+  <text x="120" y="430" fill="white" font-size="14" font-family="Arial, sans-serif">10% - Needs Improvement</text>
+  <text x="460" y="430" text-anchor="end" fill="#d1d5db" font-size="12" font-family="Arial, sans-serif">2 sessions</text>
+  
+  <!-- Fluency Progress -->
+  <rect x="524" y="370" width="400" height="80" rx="8" fill="#047857"/>
+  <text x="544" y="395" fill="#34d399" font-size="16" font-family="Arial, sans-serif">⚡ Fluency</text>
+  <rect x="544" y="405" width="360" height="8" rx="4" fill="#065f46"/>
+  <rect x="544" y="405" width="238" height="8" rx="4" fill="#34d399"/>
+  <text x="544" y="430" fill="white" font-size="14" font-family="Arial, sans-serif">66% - Good Progress</text>
+  <text x="884" y="430" text-anchor="end" fill="#d1d5db" font-size="12" font-family="Arial, sans-serif">8 sessions</text>
+  
+  <!-- Recent Activity -->
+  <text x="100" y="490" fill="#a78bfa" font-size="18" font-family="Arial, sans-serif">Recent Activity</text>
+  
+  <!-- Activity Items -->
+  <rect x="100" y="510" width="824" height="40" rx="6" fill="#4b5563"/>
+  <text x="120" y="535" fill="#34d399" font-size="14" font-family="Arial, sans-serif">✅ Completed Free Conversation session</text>
+  <text x="884" y="535" text-anchor="end" fill="#9ca3af" font-size="12" font-family="Arial, sans-serif">2 hours ago</text>
+  
+  <rect x="100" y="560" width="824" height="40" rx="6" fill="#4b5563"/>
+  <text x="120" y="585" fill="#f59e0b" font-size="14" font-family="Arial, sans-serif">📈 Improved fluency score by 5%</text>
+  <text x="884" y="585" text-anchor="end" fill="#9ca3af" font-size="12" font-family="Arial, sans-serif">1 day ago</text>
+  
+  <rect x="100" y="610" width="824" height="40" rx="6" fill="#4b5563"/>
+  <text x="120" y="635" fill="#60a5fa" font-size="14" font-family="Arial, sans-serif">📚 Learned 5 new vocabulary words</text>
+  <text x="884" y="635" text-anchor="end" fill="#9ca3af" font-size="12" font-family="Arial, sans-serif">3 days ago</text>
+</svg>

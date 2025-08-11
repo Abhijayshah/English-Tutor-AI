@@ -9,6 +9,62 @@ An advanced voice-enabled AI chatbot with modern UI, multiple AI models, convers
 
 ## ✨ Features
 
+## 📸 Screenshots
+
+### 1. Home Page
+![Home Page](public/images/home-page.svg)
+*The main dashboard showing your learning progress overview and available practice modes*
+
+### 2. Your Learning Progress
+![Learning Progress](public/images/learning-progress.svg)
+*Detailed breakdown of your English skills with progress tracking and recent activity*
+
+### 3. Choose Your Practice Mode
+![Practice Mode](public/images/practice-mode.svg)
+*Interactive selection of different learning modes tailored to your needs*
+
+### 4. AI Feedback
+![AI Feedback](public/images/ai-feedback.svg)
+*Comprehensive analysis of your speaking performance with detailed recommendations*
+
+### 5. AI Tutor Response
+![AI Tutor Response](public/images/ai-tutor-response.svg)
+*Real-time conversation interface with grammar corrections and interactive feedback*
+
+### 6. AI Tutor Mode Selection: (Learning Settings)
+![AI Tutor Mode Selection](public/images/ai-tutor-mode-selection.png)
+*Choose from Conversation Partner, Grammar Tutor, Pronunciation Coach, Vocabulary Builder, or Fluency Coach based on your learning goals*
+
+### 6.1 Difficulty Level Adjustment: (Learning Settings)
+<!-- ![Difficulty Level Adjustment](public/images/difficulty-level-adjustment.png) -->
+*Seamlessly switch between Beginner, Intermediate, Advanced, and Native Level to match your current proficiency*        
+### 6.2 Feedback Style Options: (Learning Settings)
+<!-- ![Feedback Style Options](public/images/feedback-style-options.png) -->
+*Customize how you receive corrections - from gentle encouragement to detailed analysis, immediate corrections, or end-of-session summaries*
+### 6.3 Recognition Language: (Learning Settings)
+<!-- ![Recognition Language](public/images/recognition-language.png) -->
+*Select your preferred English variant (US, UK, Australian, Canadian) for accurate accent recognition and feedback*
+### 6.4 Voice Selection: (Learning Settings)
+<!-- ![Voice Selection](public/images/voice-selection.png) -->
+*Choose from over 100+ AI tutor voices including native speakers, multilingual options, and specialized pronunciation coaches*
+### 6.5 Session Duration Control: (Learning Settings)
+<!-- ![Session Duration Control](public/images/session-duration-control.png) -->
+*Set practice sessions from quick 5-minute exercises to unlimited learning time based on your schedule*        
+### 6.6 Progress Tracking: (Learning Settings)
+<!-- ![Progress Tracking](public/images/progress-tracking.png) -->
+*Access detailed analytics and clear session history for continuous improvement monitoring*
+### 6.7 Real-time Status: (Learning Settings)
+<!-- ![Real-time Status](public/images/real-time-status.png) -->
+*Live microphone activity indicator showing "AI is analyzing your speech..." with session timer display* 
+### 6.8 Microphone Setting: (Learning Settings)
+<!-- ![Microphone Setting](public/images/microphone-setting.png) -->
+*Microphone setting interface with options to select microphone and adjust volume*                    
+
+This settings interface allows learners to create a fully personalized English learning environment that adapts to their specific needs, learning style, and proficiency level.
+
+
+
+
 ### 🎯 Core Features
 - **Voice Recognition**: Browser-native speech-to-text using Web Speech API
 - **Text-to-Speech**: Natural voice responses with customizable voices
@@ -54,7 +110,7 @@ An advanced voice-enabled AI chatbot with modern UI, multiple AI models, convers
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd web-speech-ai
+   cd English-Tutor-AI
    ```
 
 2. **Install dependencies**
@@ -373,4 +429,4 @@ For support, please open an issue on GitHub or contact the development team.
 
 ---
 
-**Built by ABHIJAY KUMAR SHAH 22BCE11001 ** 
+**Built by ABHIJAY KUMAR SHAH 22BCE11001 **
