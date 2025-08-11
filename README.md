@@ -12,23 +12,23 @@ An advanced voice-enabled AI chatbot with modern UI, multiple AI models, convers
 ## 📸 Screenshots
 
 ### 1. Home Page
-![Home Page](public/images/home-page.svg)
+![Home Page](public/images/home-page.png)
 *The main dashboard showing your learning progress overview and available practice modes*
 
 ### 2. Your Learning Progress
-![Learning Progress](public/images/learning-progress.svg)
+![Learning Progress](public/images/learning-progress.png)
 *Detailed breakdown of your English skills with progress tracking and recent activity*
 
 ### 3. Choose Your Practice Mode
-![Practice Mode](public/images/practice-mode.svg)
+![Practice Mode](public/images/practice-mode.png)
 *Interactive selection of different learning modes tailored to your needs*
 
 ### 4. AI Feedback
-![AI Feedback](public/images/ai-feedback.svg)
+![AI Feedback](public/images/ai-feedback.png)
 *Comprehensive analysis of your speaking performance with detailed recommendations*
 
 ### 5. AI Tutor Response
-![AI Tutor Response](public/images/ai-tutor-response.svg)
+![AI Tutor Response](public/images/ai-tutor-response.png)
 *Real-time conversation interface with grammar corrections and interactive feedback*
 
 ### 6. AI Tutor Mode Selection: (Learning Settings)
