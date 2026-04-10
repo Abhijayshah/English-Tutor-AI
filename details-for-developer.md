@@ -1,28 +1,29 @@
-# English Tutor AI - Project Documentation for Developers
+# English Tutor AI - Comprehensive Developer Documentation
 
-**Last Updated**: 2026-03-15  
-**Version**: 2.0.0
+**Last Updated**: 2026-04-11
+**Version**: 2.1.0
 
 ---
 
 ## 1. PROJECT OVERVIEW
 - **Project Name**: English Tutor AI (VoiceGPT Advanced)
-- **Description**: An AI-powered English speaking practice platform that provides real-time feedback on grammar, pronunciation, vocabulary, and fluency.
-- **Main Purpose**: To help English learners improve their speaking skills through interactive, AI-driven conversations.
-- **Target Audience**: Non-native English speakers looking for a safe, encouraging environment to practice speaking.
+- **Description**: An advanced AI-powered English speaking practice platform that provides real-time feedback on grammar, pronunciation, vocabulary, and fluency using the Web Speech API and state-of-the-art LLMs.
+- **Main Purpose**: To provide a safe, encouraging, and highly interactive environment for English learners to practice speaking and receive instant, constructive feedback.
+- **Target Audience**: ESL (English as a Second Language) learners of all levels (Beginner to Native) seeking to improve their speaking confidence and accuracy.
 
 ---
 
 ## 2. TECH STACK
-- **Frontend**: Vanilla HTML/JavaScript (Web Speech API for recognition and synthesis).
-- **Styling**: Vanilla CSS with CSS Custom Properties (Variables) for theme support and Font Awesome for icons.
-- **Backend**: Node.js with [Express.js](https://expressjs.com/).
-- **Real-time Communication**: [Socket.IO](https://socket.io/) for bidirectional, event-based communication between client and server.
-- **AI Integration**: [OpenRouter API](https://openrouter.ai/) for accessing various AI models (GPT-3.5, GPT-4, Claude 3, Gemini Pro).
-- **Database**: None (Uses local storage for persistence and in-memory tracking for active sessions).
-- **Package Manager**: [npm](https://www.npmjs.com/).
-- **Deployment**: [Heroku](https://www.heroku.com/) (configured via `Procfile` and `app.json`).
-- **Security**: [Helmet](https://helmetjs.github.io/) for security headers and [express-rate-limit](https://www.npmjs.com/package/express-rate-limit) for API protection.
+- **Frontend**: Vanilla JavaScript (ES6+), HTML5, [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) (SpeechRecognition & SpeechSynthesis).
+- **Styling**: Vanilla CSS3 with CSS Custom Properties (Variables), Flexbox, Grid, and [Font Awesome 6.4.0](https://fontawesome.com/) for iconography.
+- **Backend**: [Node.js](https://nodejs.org/) with [Express.js](https://expressjs.com/).
+- **Real-time Communication**: [Socket.IO](https://socket.io/) for low-latency, bidirectional communication between the client and server.
+- **AI Integration**: [OpenRouter API](https://openrouter.ai/) (unified interface for GPT-4, Claude 3, Gemini Pro, etc.).
+- **Database**: Client-side `localStorage` for persistent conversation history, theme preferences, and learning metrics.
+- **Security**: [Helmet.js](https://helmetjs.github.io/) for CSP/security headers, [express-rate-limit](https://www.npmjs.com/package/express-rate-limit) for API protection.
+- **Compression**: [compression](https://www.npmjs.com/package/compression) middleware for faster asset delivery.
+- **Package Manager**: `npm`.
+- **Deployment**: Configured for [Heroku](https://www.heroku.com/) via `Procfile` and `app.json`.
 
 ---
 
@@ -30,159 +31,144 @@
 
 ```text
 English-Tutor-AI/
-├── .cursor/                # Cursor IDE settings
+├── .cursor/                # Cursor IDE specific settings
+├── .vscode/                # VS Code specific settings
 ├── public/                 # Static assets and frontend source
 │   ├── css/
-│   │   └── style.css       # Global styles and theme definitions
-│   ├── images/             # Screenshots and UI assets
+│   │   └── style.css       # Global styles, themes, and animations
+│   ├── images/             # Documentation screenshots and UI assets
 │   └── js/
-│       ├── microphone-fix.js # Mobile/Browser microphone compatibility fixes
-│       └── script.js       # Core frontend logic (Web Speech API, Socket.IO)
+│       ├── microphone-fix.js # Browser compatibility polyfills for audio
+│       └── script.js       # Core frontend logic (Speech API, Socket.IO, State)
 ├── views/                  # Frontend templates
-│   └── index.html          # Main application UI
-├── .gitignore              # Files to ignore in Git
-├── env.example             # Environment variable template
-├── index.js                # Backend entry point and AI logic
-├── package.json            # Dependencies and npm scripts
-├── Procfile                # Heroku deployment configuration
-└── README.md               # Project overview for users
+│   └── index.html          # Main Single Page Application (SPA) structure
+├── .gitignore              # Git ignore rules
+├── .env                    # Local environment variables (not in version control)
+├── env.example             # Template for required environment variables
+├── index.js                # Backend server, API routes, and Socket.IO logic
+├── package.json            # Project dependencies, metadata, and scripts
+├── Procfile                # Heroku process file
+├── app.json                # Heroku application configuration
+└── README.md               # User-facing project documentation
 ```
 
 ### Architectural Decisions
-- **Vanilla JS/CSS/HTML**: Chosen to minimize overhead and ensure maximum compatibility with the [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API), which can be sensitive to framework-specific DOM manipulation.
-- **Socket.IO for Chat**: Enables low-latency, real-time feedback loops, crucial for a conversational experience.
-- **OpenRouter for AI**: Provides a unified interface to multiple AI models, allowing the platform to switch between providers (OpenAI, Anthropic, Google) without changing the core logic.
+- **Vanilla Frontend**: Avoided heavy frameworks (React/Vue) to ensure direct, low-latency access to the [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) and minimize bundle size.
+- **Socket.IO over REST**: Chosen for the chat interface to support real-time "AI is typing" indicators and immediate response delivery without polling.
+- **Centralized AppState**: A single source of truth in `public/js/script.js` manages all learning metrics, UI states, and user preferences.
 
 ---
 
 ## 4. KEY COMPONENTS
 
 ### Frontend (script.js)
-- **AppState**: 
-  - **Purpose**: Manages global state including recording status, theme, history, and learning metrics.
-  - **File Path**: `public/js/script.js`
-  - **Dependencies**: `localStorage`, `Socket.io`.
-- **SpeechRecognition**:
-  - **Purpose**: Captures user voice and converts it to text.
-  - **File Path**: `public/js/script.js` (Web Speech API).
-- **SpeechSynthesis**:
-  - **Purpose**: Converts AI tutor's text response into speech.
-  - **File Path**: `public/js/script.js` (Web Speech API).
-- **initializeSpeechRecognition()**:
-  - **Purpose**: Configures and initializes the recognition engine with event listeners for speech start, end, and results.
+- **`AppState`**: 
+  - **Purpose**: Global state object tracking recording status, theme, scores (grammar, pronunciation, etc.), and session metrics.
+  - **File Path**: [script.js](file:///Users/abhijayhome/projects/English-Tutor-AI/public/js/script.js)
+  - **Dependencies**: `localStorage`, `Socket.IO`.
+- **`SpeechRecognition` (Web Speech API)**:
+  - **Purpose**: Real-time voice-to-text conversion.
+  - **Events**: `onstart`, `onresult`, `onerror`, `onend`.
+- **`speechSynthesis` (Web Speech API)**:
+  - **Purpose**: Text-to-speech engine for AI tutor responses.
+- **`initializeSpeechRecognition()`**:
+  - **Purpose**: Configures the recognition engine (continuous mode, interim results) and attaches event handlers.
+- **`updateProgressDisplay()`**:
+  - **Purpose**: Synchronizes the `AppState` scores with the UI dashboard cards.
 
 ### Backend (index.js)
-- **PERSONALITY_PROMPTS**:
-  - **Purpose**: Defines system instructions for various tutor roles (Grammar, Pronunciation, Fluency).
-- **analyzeSpeechForLearning(text, level, mode)**:
-  - **Purpose**: Analyzes the raw transcript for errors and calculates scores before sending it to the AI.
-- **makeAPICallWithRetry(requestData, maxRetries)**:
-  - **Purpose**: Robust API interaction with OpenRouter, including exponential backoff for rate limits.
+- **`PERSONALITY_PROMPTS`**:
+  - **Purpose**: A dictionary of system prompts defining the behavior of different tutor roles (e.g., `grammar_tutor`, `pronunciation_coach`).
+  - **File Path**: [index.js](file:///Users/abhijayhome/projects/English-Tutor-AI/index.js)
+- **`io.on("connection", ...)`**:
+  - **Purpose**: Manages WebSocket lifecycle, client tracking, and message routing.
+- **`makeAPICallWithRetry()`**:
+  - **Purpose**: Handles requests to OpenRouter with built-in retry logic and error handling.
 
 ---
 
 ## 5. ROUTING STRUCTURE
 
-### Backend Routes
-- **GET `/`**: Serves the `views/index.html` main page.
-- **GET `/health`**: Returns the server's health status, uptime, and memory usage.
-- **GET `/api/models`**: Returns a list of available AI models from OpenRouter.
-- **GET `/api/personalities`**: Returns a list of available tutor personalities with descriptions.
+### Backend Routes (Express)
+- **GET `/`**: Serves the main [index.html](file:///Users/abhijayhome/projects/English-Tutor-AI/views/index.html).
+- **GET `/health`**: Health check endpoint returning uptime, memory usage, and version.
+- **GET `/api/models`**: Fetches available AI models (GPT-3.5, GPT-4, etc.) for the settings panel.
+- **GET `/api/personalities`**: Returns available tutor personalities and their descriptions.
 
-### Frontend Routing
-- The application is a **Single Page Application (SPA)**. Navigation between modes and settings is handled by JS by toggling visibility of DOM elements.
+### Frontend Navigation
+- **SPA Logic**: The app uses a single-page architecture. Different "modes" (Conversation, Grammar, Scenario) are handled by updating `AppState.learningMode` and toggling CSS classes on the `mode-card` elements.
 
 ---
 
-## 6. API ENDPOINTS
+## 6. API ENDPOINTS & SOCKET EVENTS
 
 ### Socket.IO Events
-- **`connection`**: Triggered when a client connects. Server sends `connection-confirmed`.
 - **`chat message` (Client -> Server)**:
-  - **Request Body**: `{ text, model, personality, learningMode, difficultyLevel, feedbackStyle }`
-- **`tutor response` (Server -> Client)**:
-  - **Response Body**: `{ reply, speechAnalysis, learningFeedback, metadata }`
-- **`ping` / `pong`**: Connection health checks.
+  - **Payload**: `{ text, model, personality, language, history }`
+  - **Purpose**: Sends user transcript and context to the AI.
+- **`bot response` (Server -> Client)**:
+  - **Payload**: `{ text }`
+  - **Purpose**: Delivers the AI tutor's response.
+- **`typing` (Server -> Client)**:
+  - **Purpose**: Triggers the visual typing indicator in the UI.
 
 ---
 
 ## 7. STYLING SYSTEM
-
-### Methodology
-- Uses **CSS Custom Properties** (Variables) for theming and consistency.
-- **Global Styles**: Defined in `public/css/style.css` under the `:root` selector.
-- **Theme Support**: Dark mode is activated by setting `data-theme="dark"` on the `<html>` element.
-
-### Key Design Tokens
-- **Colors**: `--primary-color`, `--secondary-color`, `--success-color`, `--error-color`.
-- **Animations**: `--transition` for smooth transitions between themes and UI states.
+- **Methodology**: Utility-first CSS using CSS Variables (`:root`) for easy theming and consistent spacing.
+- **Themes**: Support for `light` (default) and `dark` modes via the `[data-theme="dark"]` attribute on the `<html>` or `<body>` tag.
+- **Global Styles**: Defined in [style.css](file:///Users/abhijayhome/projects/English-Tutor-AI/public/css/style.css).
 - **Responsive Breakpoints**:
-  - **Mobile**: Up to 768px (Cards stacked, menu simplified).
-  - **Desktop**: 769px and above (Grid layout for modes).
+  - Desktop: Default
+  - Tablet: `max-width: 992px`
+  - Mobile: `max-width: 768px` (handled via `@media` queries in [style.css](file:///Users/abhijayhome/projects/English-Tutor-AI/public/css/style.css)).
 
 ---
 
 ## 8. ENVIRONMENT VARIABLES
-
-| Variable | Purpose | Usage |
-|----------|---------|-------|
-| `OPENAI_API_KEY` | OpenRouter API key | Authenticating with AI provider |
-| `PORT` | Server port | Setting the listening port (default: 3000) |
-| `NODE_ENV` | Environment mode | Configuring CORS and logging (development/production) |
-| `RATE_LIMIT_WINDOW_MS` | Rate limit duration | `express-rate-limit` configuration |
-| `RATE_LIMIT_MAX_REQUESTS` | Max requests per window | `express-rate-limit` configuration |
+| Variable | Purpose | Location |
+|----------|---------|----------|
+| `PORT` | The port the Express server runs on (default: 3000). | `index.js` |
+| `OPENROUTER_API_KEY` | API key for OpenRouter to access LLMs. | `index.js` |
+| `NODE_ENV` | Environment mode (`development` or `production`). | `index.js` |
 
 ---
 
 ## 9. SCRIPTS & COMMANDS
-
 ```bash
-# Start the production server
-npm start
-
-# Start the development server with auto-reload (nodemon)
-npm run dev
-
-# Lint the codebase
-npm run lint
-
-# Format the code using Prettier
-npm run format
+npm start          # Runs the production server using node
+npm run dev        # Runs the server with nodemon for auto-reloading
+npm run lint       # Runs ESLint to check for code quality issues
+npm run format     # Formats the codebase using Prettier
 ```
 
 ---
 
 ## 10. DEPENDENCIES
-
-### Core Dependencies
-- **express**: Backend framework.
-- **socket.io**: Real-time communication.
-- **axios**: HTTP client for API requests.
-- **helmet / compression**: Security and performance middleware.
-- **ejs**: View engine (though currently mostly static HTML is used).
-- **dotenv**: Environment variable management.
-
-### Dev Dependencies
-- **nodemon**: Development server watcher.
-- **eslint / prettier**: Code quality and formatting.
+- **`express`**: Web framework for the backend.
+- **`socket.io`**: Real-time communication layer.
+- **`axios`**: HTTP client for making requests to OpenRouter.
+- **`ejs`**: Template engine (though currently serving static HTML, it's available for dynamic views).
+- **`dotenv`**: For managing environment variables.
+- **`helmet` & `express-rate-limit`**: Security and API protection.
+- **`compression`**: Gzip compression for middleware.
 
 ---
 
 ## 11. DEPLOYMENT NOTES
-- **Platform**: Designed for Heroku or any Node.js compatible host.
-- **Build Process**: No specific build step required as it uses vanilla JS/CSS.
-- **Prerequisites**: Ensure `OPENAI_API_KEY` is set in the production environment variables.
+- **Build Process**: No explicit build step required (Vanilla JS). Ensure `npm install` is run on the server.
+- **Heroku Setup**:
+  - Uses `Procfile` for process management (`web: node index.js`).
+  - `app.json` defines the environment requirements.
+- **Environment Setup**: Ensure `OPENROUTER_API_KEY` is set in the hosting provider's config variables.
 
 ---
 
-## 12. FUTURE SECTIONS (Placeholder)
-- [Add details about database integration here]
-- [Add details about user authentication here]
-- [Add details about advanced speech analytics here]
+## 12. FUTURE SECTIONS (TODO)
+- [ ] **Database Integration**: Migrate `localStorage` to a persistent database (e.g., MongoDB/PostgreSQL) for cross-device sync.
+- [ ] **User Authentication**: Implement JWT or OAuth for personalized user accounts.
+- [ ] **Advanced Analytics**: Add deeper NLP analysis for specific grammar error patterns.
+- [ ] **Mobile App**: Consider Capacitor or React Native wrapper for mobile-first experience.
 
 ---
-
-**TODO**:
-- [ ] Implement database for persistent user progress tracking.
-- [ ] Add user authentication (OAuth).
-- [ ] Expand pronunciation feedback with phonetic analysis.
+[End of Documentation]
