@@ -9,28 +9,28 @@
 
 ## TABLE OF CONTENTS 
 
-1. Introduction to Software Testing 
-2. Types of Testing 
-3. Testing Levels   
-4. Test Case Design Techniques 
-5. Bug Life Cycle and Bug Reports 
-6. Testing Methodologies 
-7. API Testing 
-8. Database Testing 
-9. UI and Frontend Testing 
-10. Performance Testing Concepts 
-11. Security Testing Concepts 
-12. Test Documentation Templates 
-13. Testing Tools Overview 
-14. English Tutor AI — Complete Manual Test Cases 
-15. English Tutor AI — API Test Cases 
-16. English Tutor AI — End to End Test Scenarios 
-17. English Tutor AI — Real Bug Reports from Development 
-18. English Tutor AI — Complete Test Plan 
-19. English Tutor AI — Interview Q&A (60 questions) 
-20. Quick Fire Round (35 questions) 
-21. Top 10 Things to Say That Impress Interviewers 
-22. Common Mistakes Junior QA Engineers Make 
+1. [Introduction to Software Testing](#1-introduction-to-software-testing)
+2. [Types of Testing](#2-types-of-testing)
+3. [Testing Levels](#3-testing-levels)
+4. [Test Case Design Techniques](#4-test-case-design-techniques)
+5. [Bug Life Cycle and Bug Reports](#5-bug-life-cycle)
+6. [Testing Methodologies](#6-testing-methodologies)
+7. [API Testing](#7-api-testing)
+8. [Database Testing](#8-database-testing)
+9. [UI and Frontend Testing](#9-ui-testing)
+10. [Performance Testing Concepts](#10-performance-testing-concepts)
+11. [Security Testing Concepts](#11-security-testing-concepts)
+12. [Test Documentation Templates](#12-test-documentation-templates)
+13. [Testing Tools Overview](#13-testing-tools-overview)
+14. [English Tutor AI — Complete Manual Test Cases](#14-english-tutor-ai--complete-manual-test-cases)
+15. [English Tutor AI — API Test Cases](#15-english-tutor-ai--api-test-cases)
+16. [English Tutor AI — End to End Test Scenarios](#16-english-tutor-ai--end-to-end-test-scenarios)
+17. [English Tutor AI — Real Bug Reports from Development](#17-english-tutor-ai--real-bug-reports-from-development)
+18. [English Tutor AI — Complete Test Plan](#18-english-tutor-ai--complete-test-plan)
+19. [English Tutor AI — Interview Q&A (60 questions)](#19-english-tutor-ai--interview-qa-60-questions)
+20. [Quick Fire Round (35 questions)](#20-quick-fire-round-35-questions)
+21. [Top 10 Things to Say That Impress Interviewers](#21-top-10-things-to-say-that-impress-interviewers)
+22. [Common Mistakes Junior QA Engineers Make](#22-common-mistakes-junior-qa-engineers-make)
 
 ---
 
