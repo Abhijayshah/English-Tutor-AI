@@ -17,6 +17,8 @@ const io = require("socket.io")(http, {
 });
 
 // Configuration
+const DEFAULT_MODEL = process.env.AI_MODEL || 'openrouter/free';
+
 const CONFIG = {
   port: process.env.PORT || 3000,
   apiUrl: "https://openrouter.ai/api/v1/chat/completions",
@@ -213,7 +215,7 @@ io.on("connection", (socket) => {
       if (typeof data === 'string') {
         // Old format - just text
         text = data;
-        model = 'openai/gpt-3.5-turbo';
+        model = DEFAULT_MODEL;
         personality = 'conversation_partner';
         learningMode = 'conversation';
         difficultyLevel = 'intermediate';
@@ -221,7 +223,7 @@ io.on("connection", (socket) => {
       } else if (typeof data === 'object' && data !== null) {
         // New format - object with learning parameters
         text = data.text;
-        model = data.model || 'openai/gpt-3.5-turbo';
+        model = DEFAULT_MODEL; // server-controlled (old client default was retired by OpenRouter)
         personality = data.personality || 'conversation_partner';
         learningMode = data.learningMode || 'conversation';
         difficultyLevel = data.difficultyLevel || 'intermediate';
@@ -253,7 +255,7 @@ io.on("connection", (socket) => {
           { role: "system", content: systemPrompt },
           { role: "user", content: `Student said: "${text}"\n\nSpeech Analysis: ${JSON.stringify(speechAnalysis)}\n\nPlease provide appropriate feedback and continue the conversation.` }
         ],
-        max_tokens: 600,
+        max_tokens: 1500,
         temperature: 0.7,
         stream: false
       };
@@ -370,13 +372,17 @@ async function makeAPICallWithRetry(requestData, maxRetries = 3) {
       if (response.status === 429) {
         // Rate limited - wait before retry
         const retryAfter = parseInt(response.headers['retry-after']) || Math.pow(2, attempt);
-        console.log(`⏳ Rate limited, waiting ${retryAfter}s before retry...`);
+        console.log(`⏳ Rate limited (429): ${JSON.stringify(response.data?.error?.message || '')}, waiting ${retryAfter}s before retry...`);
         await sleep(retryAfter * 1000);
         continue;
       }
 
       if (response.status >= 400) {
         throw new Error(`API error: ${response.status} - ${response.statusText}`);
+      }
+
+      if (!response.data?.choices?.[0]?.message?.content) {
+        throw new Error('Empty reply from model (free router may have picked a reasoning model)');
       }
 
       return response;
