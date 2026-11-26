@@ -3,7 +3,7 @@
 // Global variables and configuration
 const CONFIG = {
   defaultLanguage: 'en-US',
-  defaultModel: 'openai/gpt-3.5-turbo',
+  defaultModel: 'openrouter/free',
   defaultPersonality: 'helpful',
   maxHistoryItems: 50,
   speechTimeout: 5000,
